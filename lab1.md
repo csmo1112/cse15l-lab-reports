@@ -9,15 +9,14 @@
 
 
 **`cd directory`** (lecture1) changes the directory to lecture1.  
-**`ls directory`** shows the files and directories within lecture1, like the messages directory, Hello Java files, and the README.  
-**`cat directory`** shows this message:  
-`*cat: lecture1: Is a directory*`
+**`ls directory`** shows the files and directories within lecture1, like the `messages` directory, Hello Java files, and `README.md`.  
+**`cat directory`** shows this message: `cat: lecture1: Is a directory`
 
 Here are the screenshots:  
 ![image](https://github.com/csmo1112/cse15l-lab-reports/assets/147008706/09557f91-865a-4453-a3c0-79f04e8fd3a7)
 
 
-**`cd file`** throws an error that states: `bash: cd: README: Not a directory*`.  
+**`cd file`** throws an error that states: `bash: cd: README: Not a directory`.  
 **`ls file`** gives the file. In my case, `ls en-us.txt` simply returned `en-us.txt` in the console.  
 **`cat file`** returns the contents of the file. In my case, `cat en-us.txt` returns `*Hello World!*`  
 
