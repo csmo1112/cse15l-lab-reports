@@ -8,8 +8,8 @@
 
 
 
-**`cd directory`** (lecture1) changes the directory to lecture1.  
-**`ls directory`** shows the files and directories within lecture1, like the `messages` directory, Hello Java files, and the `README`.  
+**`cd directory`** changes the directory to the one specified. In my case, I did `cd lecture1` and the active directory changed to the `lecture1` directory in `/home`.  
+**`ls directory`** with `lecture1` as the directory shows the files and directories within lecture1, like the `messages` directory, `Hello` Java files (`.class` and `.java` files), and the `README`.  
 **`cat directory`** shows this message: `cat: lecture1: Is a directory`
 
 Here are the screenshots:  
