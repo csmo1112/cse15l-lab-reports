@@ -1,4 +1,4 @@
-**cd with no arguments** does not do anything because no directory is specified.  
+**`cd` with no arguments** does not do anything because no directory is specified.  
 **ls with no arguments** shows the available directory. In /home, it shows lecture1.  
 **cat with no arguments** breaks the program, and need to do ctrl+z to exit  
 
