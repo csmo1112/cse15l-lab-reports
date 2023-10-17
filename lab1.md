@@ -18,7 +18,7 @@ Here are the screenshots:
 
 **`cd file`** throws an error that states: `bash: cd: README: Not a directory`.  
 **`ls file`** gives the file. In my case, `ls en-us.txt` simply returned `en-us.txt` in the console.  
-**`cat file`** returns the contents of the file. In my case, `cat en-us.txt` returns `*Hello World!*`  
+**`cat file`** returns the contents of the file. In my case, `cat en-us.txt` returns `Hello World!`  
 
 Here are the screenshots:  
 ![image](https://github.com/csmo1112/cse15l-lab-reports/assets/147008706/a1f1b680-085f-4531-a0c2-747075916b6e)
