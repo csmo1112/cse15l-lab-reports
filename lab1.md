@@ -9,7 +9,7 @@
 
 
 **`cd directory`** (lecture1) changes the directory to lecture1.  
-**`ls directory`** shows the files and directories within lecture1, like the `messages` directory, Hello Java files, and `README.md`.  
+**`ls directory`** shows the files and directories within lecture1, like the `messages` directory, Hello Java files, and the `README`.  
 **`cat directory`** shows this message: `cat: lecture1: Is a directory`
 
 Here are the screenshots:  
