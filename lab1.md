@@ -18,7 +18,7 @@ Here are the screenshots:
 
 
 ## Functions with a file argument  
-*To preface, this is in the directory `~/lecture1/messages`*  
+*To preface, this is in the directory `~/lecture1/messages`. To get here, type `cd lecture1` followed by `cd messages` or optionally, `cd lecture1/messages`.*  
 
 **`cd en-us.txt`** throws an error that states: `bash: cd: en-us: Not a directory`.  
 **`ls en-us.txt`** gives the file. In my case, `ls en-us.txt` simply returned `en-us.txt` in the console.  
