@@ -76,4 +76,4 @@ OK (3 tests)
 
 ## Part 2: Researching Commands  
 
-`grep` has many command-line options, and the four that I chose are `-e PATTERNS`, `-f FILE`, `-i`, and `-v`. I found these while looking at the (Linux Manual Page)[https://man7.org/linux/man-pages/man1/grep.1.html]
+`grep` has many command-line options, and the four that I chose are `-e PATTERNS`, `-f FILE`, `-i`, and `-v`. I found these while looking at the [Linux Manual Page](https://man7.org/linux/man-pages/man1/grep.1.html)
