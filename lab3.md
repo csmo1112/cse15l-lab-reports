@@ -78,7 +78,8 @@ OK (3 tests)
 
 `grep` has many command-line options, and the four that I chose are `-r`, `-c`, `-w`, and `-v`. Generally, `grep` looks for patterns within . I found these while looking at the [Linux Manual Page](https://man7.org/linux/man-pages/man1/grep.1.html), and the examples on `./technical` are shown below:  
 
-`-r` recursively searches the specified directory and its contents, and returns the line containing the match. The first test I did was calling `grep -r "Monday" .`, and my results are shown here:  
+###`-r` 
+recursively searches the specified directory and its contents, and returns the line containing the match. The first test I did was calling `grep -r "Monday" .`, and my results are shown here:  
 ```
 chris@LAPTOP-HS27MT5I MINGW64 ~/Documents/GitHub/docsearch/technical (main)
 $ grep -r "Monday" .
@@ -121,7 +122,8 @@ $ grep -r "Monday" ./911report/
 ```
 As expected, since we narrowed the search area to one subdirectory, we only got the top two matches from the above output since `/911report/` doesn't have any further subdirectories.  
   
-`-c` returns the number of instances a word appears in a file, so calling it with a directory will not give any meaningful results:  
+###`-c` 
+returns the number of instances a word appears in a file, so calling it with a directory will not give any meaningful results:  
 ```
 chris@LAPTOP-HS27MT5I MINGW64 ~/Documents/GitHub/docsearch/technical (main)
 $ grep -c "Monday" ./911report/
@@ -134,7 +136,7 @@ chris@LAPTOP-HS27MT5I MINGW64 ~/Documents/GitHub/docsearch/technical (main)
 $ grep -c "Monday" ./plos/pmed.0020059.txt
 4
 ```
-Counting the rows from the first output, we know that there should be 4 instances of "Monday" in `0020059.txt`, and calling `grep -r` supports this. I then tried `grep -rc`, which should combine the functions and recursively search the files in the specified directory and return the number of instances of the word per file. I did `grep -rc "Monday" ./911report/` and got:
+Counting the rows from the first output, we know that there should be 4 instances of "Monday" in `pmed.0020059.txt`, and calling `grep -r` supports this. I then tried `grep -rc`, which should combine the functions and recursively search the files in the specified directory and return the number of instances of the word per file. I did `grep -rc "Monday" ./911report/` and got:
 ```
 chris@LAPTOP-HS27MT5I MINGW64 ~/Documents/GitHub/docsearch/technical (main)
 $ grep -rc "Monday" ./911report/
@@ -158,4 +160,57 @@ $ grep -rc "Monday" ./911report/
 ```
 As you can see, the console outputs all the files in the `911report` directory and the number of times "Monday" shows up in each of them. Additionally, we can see that both instances of "Monday" can be found in the same text file, most likely corresponding to the day the report was written.  
 
-`-w`
+###`-w` 
+will only consider it a match if it matches the whole word. So far, we have been doing "Monday" for our tests, and thus we will most likely get the same answer when typing `grep -w "Monday" ./plos/pmed.0020059.txt` I get the same lines from the first output:  
+```
+chris@LAPTOP-HS27MT5I MINGW64 ~/Documents/GitHub/docsearch/technical (main)
+$ grep -w "Monday" ./plos/pmed.0020059.txt
+          The first step is to stratify the data by day of week: Monday, Tuesday,…, Sunday. The
+          z, given that it was observed on a Monday, is the same for all Mondays,
+          the same hospital and the same day of week. That is, if Monday was missing during the
+```
+However, if we do `grep -w "Mon" ./plos/pmed.0020059.txt`, we understandably get nothing:  
+```
+chris@LAPTOP-HS27MT5I MINGW64 ~/Documents/GitHub/docsearch/technical (main)
+$ grep -w "Mon" ./plos/pmed.0020059.txt
+
+```  
+My next test was `grep -wr window ./plos/` to see how many lines in all the files in `plos` contain "window":  
+```
+chris@LAPTOP-HS27MT5I MINGW64 ~/Documents/GitHub/docsearch/technical (main)
+$ grep -wr "window" ./plos/
+./plos/journal.pbio.0020150.txt:        Functional magnetic resonance imaging—fMRI—opens a window onto the brain at work. By
+./plos/journal.pbio.0020206.txt:        is a relatively narrow time window for evolutionary exploration before degradation becomes
+./plos/journal.pbio.0020206.txt:        following duplication, the transient nature of the evolutionary window of opportunity
+./plos/journal.pbio.0020216.txt:        reveal many of their perceptual peculiarities. Using the bee language as a window into
+./plos/journal.pbio.0020267.txt:        if we are opening a window or door to the autistic brain.” Keeping that door open as long
+./plos/journal.pbio.0030056.txt:        is.” By contrast, aDNA can do just that, giving researchers a window onto the population
+./plos/journal.pbio.0030137.txt:        flexibility of this membrane increases with distance from the oval window (the point of
+./plos/journal.pbio.0030137.txt:        peak of vibration near the oval window (Figure 1A); if the frequency is low, the peak of
+./plos/pmed.0020005.txt:        temporal window) to detect strong associations between disease outbreaks and environmental
+./plos/pmed.0020009.txt:        This narrow window avoids absolute prohibition while striving to prevent institutional
+./plos/pmed.0020059.txt:        sclerosis [32], and diabetes [33]. The basic idea is that there is a scanning window that
+./plos/pmed.0020059.txt:        moves across space and/or time. For each location and size of the window, the number of
+./plos/pmed.0020059.txt:          cylinders to define the scanning window, each being a possible candidate for an outbreak.
+./plos/pmed.0020059.txt:          scanning window to establish the usual pattern of visits while avoiding inclusion of data
+./plos/pmed.0020059.txt:        Other shapes of the scanning window are also available [36], but it has been shown that
+./plos/pmed.0020216.txt:        currently a short window of opportunity to take action to control the HIV epidemic in
+./plos/pmed.0020216.txt:        There is a window of opportunity to combat HIV/AIDS in Nepal. If trends continue, AIDS
+```  
+`grep -w` is very useful for getting one specific word, rather than a past tense or future tense or plural of the word, like "window". In my case, I did "window" to rule out matches that had "windows" or "windowed" in the text.  
+
+###`-v` 
+returns the inverse, or lines that do NOT contain matches of the word. I saw it fitting to do my two tests as "Monday" and "window" in `./technical/plos/pmed.0020059.txt`, and put `-c` with them to shorten the output. My first test was `grep -cv "Monday" ./plos/pmed.0020059.txt` and got: 
+```
+chris@LAPTOP-HS27MT5I MINGW64 ~/Documents/GitHub/docsearch/technical (main)
+$ grep -cv "Monday" ./plos/pmed.0020059.txt
+473
+```
+`pmed.0020059.txt` originally has 477 lines (double checked using `wc -l`) and the number of matches is in keeping with our guess that there are 4 lines with "Monday" and thus 473 lines without.  
+The next test was `grep -cv "window" ./plos/pmed.0020059.txt`, which gave:
+```
+chris@LAPTOP-HS27MT5I MINGW64 ~/Documents/GitHub/docsearch/technical (main)
+$ grep -cv "window" ./plos/pmed.0020059.txt
+472
+```  
+From this, we know that there are 472 lines in `pmed.0020059.txt` that do NOT have the word "window" in it, and this function is very useful in determining which lines don't contain a certain word or phrase if a user wants to filter it out.
