@@ -15,19 +15,7 @@ An input that does not cause a failure is when an array's reverse is the same as
     int[] input1 = { };
     assertArrayEquals(new int[]{ }, ArrayExamples.reversed(input1));
   }
-```
-In `ArrayExamples.java`, we keep the original code to replicate the bug:  
-```
-  // Returns a *new* array with all the elements of the input array in reversed
-  // order
-  static int[] reversed(int[] arr) {
-    int[] newArray = new int[arr.length];
-    for(int i = 0; i < arr.length; i += 1) {
-      arr[i] = newArray[arr.length - i - 1];
-    }
-    return arr;
-  }
-```
+```  
 The symptom when running in the terminal:
 ```
 JUnit version 4.13.2
@@ -55,4 +43,35 @@ Caused by: java.lang.AssertionError: expected:<3> but was:<0>
 FAILURES!!!
 Tests run: 3,  Failures: 1
 ```
+In `ArrayExamples.java`, we keep the original code to replicate the bug:  
+```
+  // Returns a *new* array with all the elements of the input array in reversed
+  // order
+  static int[] reversed(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = newArray[arr.length - i - 1];
+    }
+    return arr;
+  }
+```
+And we fixed the bug and the new, working code is shown below:
+```
+  static int[] reversed(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for(int i = 0; i < arr.length; i += 1) {
+      newArray[arr.length - i - 1] = arr[i];
+    }
+    return newArray;
+  }
+```  
+By making the function return `newArray` instead of `arr` (the original array), and switching the order of assignment, we fix the bugs in the function `reversed()`. Previously, the function copied empty array values from `newArray` into the original array instead of copying original values into the new one, resulting in the fuction returning an empty array. After the fixes, the symptoms are addressed as well:
+```
+JUnit version 4.13.2
+...
+Time: 0.011
 
+OK (3 tests)
+```
+
+## Part 2: Researching Commands  
