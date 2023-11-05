@@ -8,6 +8,14 @@ public void testReversed2() {
   assertArrayEquals(new int[]{3,2,1}, ArrayExamples.reversed(input1));
 }
 ```
+An input that does not cause a failure is when an array's reverse is the same as the original, for example `{}`:
+```
+  @Test
+  public void testReversed() {
+    int[] input1 = { };
+    assertArrayEquals(new int[]{ }, ArrayExamples.reversed(input1));
+  }
+```
 In `ArrayExamples.java`, we keep the original code to replicate the bug:  
 ```
   // Returns a *new* array with all the elements of the input array in reversed
