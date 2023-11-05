@@ -76,4 +76,46 @@ OK (3 tests)
 
 ## Part 2: Researching Commands  
 
-`grep` has many command-line options, and the four that I chose are `-e PATTERNS`, `-f FILE`, `-i`, and `-v`. I found these while looking at the [Linux Manual Page](https://man7.org/linux/man-pages/man1/grep.1.html)
+`grep` has many command-line options, and the four that I chose are `-r`, `-c`, `-w`, and `-v`. Generally, `grep` looks for patterns within . I found these while looking at the [Linux Manual Page](https://man7.org/linux/man-pages/man1/grep.1.html), and the examples on `./technical` are shown below:  
+
+`-r` recursively searches the specified directory and its contents, and returns the line containing the match. The first test I did was calling `grep -r "Monday" .`, and my results are shown here:  
+```
+chris@LAPTOP-HS27MT5I MINGW64 ~/Documents/GitHub/docsearch/technical (main)
+$ grep -r "Monday" .
+./911report/chapter-10.txt:                    competitive firms of the financial industry, the markets reopened on Monday,
+./911report/chapter-10.txt:                prepared a paper that President Bush then considered with principals on Monday
+./biomed/1471-2458-1-9.txt:        followed by the week's highest counts on Mondays. However,
+./biomed/1472-6920-2-1.txt:            (Monday, Wednesday and Friday afternoons) during a
+./government/Media/AP_LawSchoolDebts.txt:private sector, a study being released Monday found.
+./government/Media/Barnes_new_job.txt:On Monday, departing Gov. Roy Barnes will spend his first day as
+./government/Media/Boone_legal_service.txt:Monday, December 23, 2002
+./government/Media/Crains_New_York_Business.txt:Monday, September 9, 2002
+./government/Media/Disaster_center.txt:will be available from 8 a.m. to 8 p.m., Monday through Thursday,
+./government/Media/fight_domestic_abuse.txt:U.S. Rep. John Tanner announced Monday that the grant was
+./government/Media/Funds_Shortage.txt:the keynote speech to the legal aid providers on Monday and will
+./government/Media/help_rent-to-own_tenants.txt:director) Ed McCann about it," Bryant said Monday. "I asked them to
+./government/Media/Law_Schools.txt:Monday, December 16, 2002
+./government/Media/Library_Lawyers.txt:Monday, December 16, 2002
+./government/Media/NJ_Legal_Services.txt:Monday, October 14, 2002
+./government/Media/Owning_a_Piece.txt:On Monday, Legal Aid will break ground at the first building it
+./government/Media/pro_bono_efforts.txt:Monday.
+./government/Media/Rumble_in_the_Bronx.txt:Services system. Last Monday, the Bronx organization filed a
+./government/Media/Rumble_in_the_Bronx.txt:City Limits (NY) - Monday, August 12, 2002
+./government/Media/State_funding.txt:Monday, December 16, 2002
+./government/Media/The_Columbian.txt:OLYMPIA -- The U.S. Supreme Court agreed Monday to hear a
+./government/Media/Unusual_Woodburn.txt:Monday, October 28, 2002 Alex Davis
+./government/Post_Rate_Comm/Cohenetal_CreamSkimming.txt:Sweden chose to deliver two days per week (Monday/Thursday in some
+./government/Post_Rate_Comm/Gleiman_EMASpeech.txt:on Monday, November 13th.
+./government/Post_Rate_Comm/Gleiman_gca2000.txt:weekend, before the December board meeting that took place Monday
+./plos/pmed.0020059.txt:          The first step is to stratify the data by day of week: Monday, Tuesday,…, Sunday. The
+./plos/pmed.0020059.txt:          z, given that it was observed on a Monday, is the same for all Mondays,
+./plos/pmed.0020059.txt:          the same hospital and the same day of week. That is, if Monday was missing during the
+./plos/pmed.0020059.txt:          last week, then we removed all Mondays for that hospital. This removal introduces
+```  
+Since my working directory was `/c/Users/chris/Documents/GitHub/docsearch/technical`, it recursively searched all directories within `technical` and outputted the line that had "Monday" in it. I then tested `grep -r "Monday" ./911report/` and as expected, got the top two matches from the above output: 
+```
+chris@LAPTOP-HS27MT5I MINGW64 ~/Documents/GitHub/docsearch/technical (main)
+$ grep -r "Monday" ./911report/
+./911report/chapter-10.txt:                    competitive firms of the financial industry, the markets reopened on Monday,
+./911report/chapter-10.txt:                prepared a paper that President Bush then considered with principals on Monday
+```
