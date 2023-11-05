@@ -1,6 +1,6 @@
 ## Part 1: Bugs  
 Failure-inducing input:  
-In `ArrayTests.java`:  
+In `ArrayTests.java`, we have the test of a simple array, `{1, 2, 3}`:  
 ```
 @Test
 public void testReversed2() {
