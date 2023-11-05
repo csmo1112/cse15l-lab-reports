@@ -112,10 +112,50 @@ $ grep -r "Monday" .
 ./plos/pmed.0020059.txt:          the same hospital and the same day of week. That is, if Monday was missing during the
 ./plos/pmed.0020059.txt:          last week, then we removed all Mondays for that hospital. This removal introduces
 ```  
-Since my working directory was `/c/Users/chris/Documents/GitHub/docsearch/technical`, it recursively searched all directories within `technical` and outputted the line that had "Monday" in it. I then tested `grep -r "Monday" ./911report/` and as expected, got the top two matches from the above output: 
+Since my working directory was `/c/Users/chris/Documents/GitHub/docsearch/technical`, it recursively searched all directories within `technical` and outputted the line that had "Monday" in it. I then tested `grep -r "Monday" ./911report/`:  
 ```
 chris@LAPTOP-HS27MT5I MINGW64 ~/Documents/GitHub/docsearch/technical (main)
 $ grep -r "Monday" ./911report/
 ./911report/chapter-10.txt:                    competitive firms of the financial industry, the markets reopened on Monday,
 ./911report/chapter-10.txt:                prepared a paper that President Bush then considered with principals on Monday
 ```
+As expected, since we narrowed the search area to one subdirectory, we only got the top two matches from the above output since `/911report/` doesn't have any further subdirectories.  
+  
+`-c` returns the number of instances a word appears in a file, so calling it with a directory will not give any meaningful results:  
+```
+chris@LAPTOP-HS27MT5I MINGW64 ~/Documents/GitHub/docsearch/technical (main)
+$ grep -c "Monday" ./911report/
+grep: ./911report/: Is a directory
+0
+```  
+However, once you put in a file name, you can get the desired results. I did `grep -c "Monday" ./plos/pmed.0020059.txt` since I looked at the results from the first test and got this output:  
+```
+chris@LAPTOP-HS27MT5I MINGW64 ~/Documents/GitHub/docsearch/technical (main)
+$ grep -c "Monday" ./plos/pmed.0020059.txt
+4
+```
+Counting the rows from the first output, we know that there should be 4 instances of "Monday" in `0020059.txt`, and calling `grep -r` supports this. I then tried `grep -rc`, which should combine the functions and recursively search the files in the specified directory and return the number of instances of the word per file. I did `grep -rc "Monday" ./911report/` and got:
+```
+chris@LAPTOP-HS27MT5I MINGW64 ~/Documents/GitHub/docsearch/technical (main)
+$ grep -rc "Monday" ./911report/
+./911report/chapter-1.txt:0
+./911report/chapter-10.txt:2
+./911report/chapter-11.txt:0
+./911report/chapter-12.txt:0
+./911report/chapter-13.1.txt:0
+./911report/chapter-13.2.txt:0
+./911report/chapter-13.3.txt:0
+./911report/chapter-13.4.txt:0
+./911report/chapter-13.5.txt:0
+./911report/chapter-2.txt:0
+./911report/chapter-3.txt:0
+./911report/chapter-5.txt:0
+./911report/chapter-6.txt:0
+./911report/chapter-7.txt:0
+./911report/chapter-8.txt:0
+./911report/chapter-9.txt:0
+./911report/preface.txt:0
+```
+As you can see, the console outputs all the files in the `911report` directory and the number of times "Monday" shows up in each of them. Additionally, we can see that both instances of "Monday" can be found in the same text file, most likely corresponding to the day the report was written.  
+
+`-w`
