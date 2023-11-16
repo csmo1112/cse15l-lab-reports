@@ -5,13 +5,15 @@ I typed `ssh cs15lfa23sl@ieng6.ucsd.edu <enter>` and was prompted a password bec
 ## Step 5: cloning the repo using `.ssh` URL  
 In the command line, I wrote `git clone git@github.com:csmo1112/lab7.git <enter>` and got:  
 ![image](https://github.com/csmo1112/cse15l-lab-reports/assets/147008706/ccf2aaad-4586-4160-aef1-d7999e191c8a)  
+I then wrote `cd lab7 <enter>` to change my working directory to the lab7 folder to access the files.  
+![image](https://github.com/csmo1112/cse15l-lab-reports/assets/147008706/b64c14aa-830f-4827-9b10-d50b1ecdead4)  
 
 ## Step 6: running tests and showing that they fail  
 To test, I typed `bash test.sh <enter>` and as expected, the tests failed:  
 ![image](https://github.com/csmo1112/cse15l-lab-reports/assets/147008706/c7077379-7c8b-49c0-a4fa-46f42ad0fc53)  
 
 ## Step 7: editing the code to fix the failing test  
-I began by typing `vim ListExamples.java <enter>` to open the file, then pressed `<j>` 43 times to get to the line I needed to change, then typed `<l>` 11 times to have the cursor over the 1 in `index1` and typed `<r><2>` to replace 1 with 2.  
+I began by typing `vim ListExamples.java <enter>` to open the file, then pressed `<j>` 43 times to get to the line I needed to change, then typed `<l>` 11 times to have the cursor over the 1 in `index1` and typed `<r> <2>` to replace 1 with 2.  
 ![image](https://github.com/csmo1112/cse15l-lab-reports/assets/147008706/7b78dd8b-27da-41db-b323-f9d2c263a68c)  
 I then typed `:wq <enter>` to save and exit vim.  
 
