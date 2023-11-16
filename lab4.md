@@ -1,5 +1,5 @@
 ## Step 4: logging into ieng6:  
-I typed `ssh cs15lfa23sl@ieng6.ucsd.edu <enter>` and was prompted a password because I was logging in from another lab computer, and got this this in the terminal:  
+I typed `ssh cs15lfa23sl@ieng6.ucsd.edu <enter>` and was prompted a password because I was logging in from another lab computer, and got this in the terminal:  
 ![image](https://github.com/csmo1112/cse15l-lab-reports/assets/147008706/76fa66a4-8c29-4b72-86b9-7a7a240f8420)  
 
 ## Step 5: cloning the repo using `.ssh` URL  
