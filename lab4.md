@@ -13,7 +13,7 @@ To test, I typed `bash test.sh <enter>` and as expected, the tests failed:
 ![image](https://github.com/csmo1112/cse15l-lab-reports/assets/147008706/c7077379-7c8b-49c0-a4fa-46f42ad0fc53)  
 
 ## Step 7: editing the code to fix the failing test  
-I began by typing `vim ListExamples.java <enter>` to open the file, then typed `/index1 <enter>` to search for the word I needed to change, followed by pressing `<n>` 9 times to get to the beginning of instance I needed to change, then typed `<e>` to have the cursor over the 1 (the end of the word) in `index1` and typed `<r>` `<2>` to replace the 1 with 2.  
+I began by typing `vim ListExamples.java <enter>` to open the file, then typed `/index1 <enter>` to search for the word I needed to change (`index1`), followed by pressing `<n>` 9 times to get to the specific instance of `index1` I needed to change, then typed `<e>` to have the cursor over the 1 (the end of the word) in `index1` and typed `<r>` `<2>` to replace the 1 with 2.  
 ![image](https://github.com/csmo1112/cse15l-lab-reports/assets/147008706/7b78dd8b-27da-41db-b323-f9d2c263a68c)  
 I then typed `:wq <enter>` to save and exit vim.  
 
