@@ -3,4 +3,7 @@ Hi, I am having trouble with lab 7, and I am running into an error. Here is the 
 ![image](https://github.com/csmo1112/cse15l-lab-reports/assets/147008706/9339979b-4eb6-473c-b57c-d6d63d7ff8f0)  
 and here is my code for the `merge()` function:  
 ![image](https://github.com/csmo1112/cse15l-lab-reports/assets/147008706/6866eb58-8601-4f5d-ad70-ed27853023f5)  
-I was wondering why the first test case outputs something, while the other one has a memory error? Thanks.
+I was wondering why the first test case outputs something, while the other one has a memory error? Thanks.    
+
+## Tutor's Response  
+The memory error likely means that there is a memory leak in your program, which means that something is iterating and shouldn't be. Try looking at your loops and make sure everything is being iterated correctly.  
