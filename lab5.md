@@ -1,3 +1,4 @@
+# Debugging Scenario
 ## Ed Post
 Hi, I am having trouble with lab 7, and I am running into an error. Here is the terminal output:  
 ![image](https://github.com/csmo1112/cse15l-lab-reports/assets/147008706/9339979b-4eb6-473c-b57c-d6d63d7ff8f0)  
