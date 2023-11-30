@@ -19,6 +19,9 @@ I think there is an easier way to fix your code. Look at how your resulting arra
 
 ## Student's Response  
 Got it, I misread the question and thought I needed to put it in reverse order. I fixed it now, and all the tests pass. Thanks!  
-![image](https://github.com/csmo1112/cse15l-lab-reports/assets/147008706/7dbfe65d-aaff-4504-a844-5e8b4cf85be8)    
+![image](https://github.com/csmo1112/cse15l-lab-reports/assets/147008706/7dbfe65d-aaff-4504-a844-5e8b4cf85be8)  
 
+
+  
 # Reflection  
+In the second half of this quarter, I learned how to use Vim and jdb to debug code without an IDE. I had previously used Vim, but would immeadiately go into insert mode and change the code in my files. Learning the shortcuts and navigation made me reconsider the usefulness of Vim, since I can now easily find the places where I need to change and quickly change the code. I also enjoyed learning about jdb and how to set breakpoints, etc. directly from a terminal. This makes it much faster to debug smaller issues from the terminal instead of waiting for an IDE like Eclipse to load up and having to commit changes with git. 
